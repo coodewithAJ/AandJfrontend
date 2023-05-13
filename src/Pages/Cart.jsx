@@ -121,7 +121,7 @@ const Cart = () => {
   const handlePlaceOrder = async()=>{
     try{
       if(address.city!=="" && address.name !=="" && address.phone !== "" && address.pincode !== "" && address.state!=""){
-        await axios.post("http://localhost:8000/address/",address)
+        await axios.post("https://aandjbackend.onrender.com/address/",address)
         console.log(address)
         alert("order placed sucessfully")
         navigate("/");

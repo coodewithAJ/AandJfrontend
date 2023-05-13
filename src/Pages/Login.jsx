@@ -96,7 +96,7 @@ const Login = () => {
                     alert("please fill all the fields");
                     navigate("/login")
                 }
-                const response = await axios.post("http://localhost:8000/signup",signUp);
+                const response = await axios.post("https://aandjbackend.onrender.com/signup",signUp);
             }catch(err){
                 console.log(err)
             }
@@ -114,7 +114,7 @@ const Login = () => {
     
     const Login = async() =>{
         try{
-            const response = await axios.post("http://localhost:8000/signin",signIn);
+            const response = await axios.post("https://aandjbackend.onrender.com/signin",signIn);
             {
                 if(response.data == "Incorrect Password"){
                     alert("Incorrect Password")

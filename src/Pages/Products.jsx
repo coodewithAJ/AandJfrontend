@@ -49,15 +49,17 @@ const Products = () => {
   const[allProducts,setAllProducts] = useState();
   const [sortValue,setSortValue] = useState("low to high");
   const location = useLocation();
-  
   useEffect(()=>{
     const getProduct = async() =>{
-      const products = await axios.get(`http://localhost:8000/product/${location.pathname.split("/")[2]}`)
+      const products = await axios.get(`https://aandjbackend.onrender.com/product/${location.pathname.split("/")[2]}`);
+      console.log(products)
+      
       setAllProducts(products.data);
     }
     getProduct();
    
   },[])
+  console.log(allProducts)
 
   const handleSort = async()=>{
     const value = document.getElementById("sort").value;
@@ -65,7 +67,7 @@ const Products = () => {
   }
   useEffect(()=>{
     const getProduct = async() =>{
-      const products = await axios.get(`http://localhost:8000/product/${location.pathname.split("/")[2]}`)
+      const products = await axios.get(`https://aandjbackend.onrender.com/product/${location.pathname.split("/")[2]}`)
       if(sortValue == "low to high"){
         setAllProducts(products.data.sort((a,b)=>a.price-b.price))
       }else{
@@ -76,7 +78,9 @@ const Products = () => {
     }
     getProduct();
    
-  },sortValue)
+  },[sortValue])
+
+  console.log(location)
 
   
  
@@ -111,7 +115,7 @@ const Products = () => {
           </Box>
           <Typography style={{fontSize:"20px",fontWeight:"600",marginLeft:"10px",color:"green",letterSpacing:"1px"}}>{location.pathname.split("/")[2].toLocaleUpperCase()} FOR MEN</Typography>
           </Box> */}
-          <Typography style={{fontSize:"20px",fontWeight:"600",marginLeft:"10px",color:"green",letterSpacing:"1px"}}>{location.pathname.split("/")[2].toLocaleUpperCase()} FOR MEN</Typography>
+          <Typography style={{fontSize:"20px",fontWeight:"600",marginLeft:"10px",color:"green",letterSpacing:"1px"}}>{location.pathname.split("/")[2]?.toLocaleUpperCase()} FOR MEN</Typography>
           <Box>
           <CustomSelect onChange={handleSort} id='sort'>
           <SelectOption disabled selected >Sort</SelectOption>

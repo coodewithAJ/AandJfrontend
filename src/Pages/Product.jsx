@@ -10,6 +10,7 @@ import { useLocation } from 'react-router-dom';
 import { Divider } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import {addToCart}  from '../redux/Cart';
+import Navbar from '../Components/Navbar';
 
 
 const Wrapper = styled(Box)(({theme})=>({
@@ -105,12 +106,13 @@ const Product = () => {
     const location = useLocation();
     const id = location.pathname.split('/')[3]
    
+   
     
     
    
     useEffect(()=>{
         const getProduct = async() =>{
-            const product = await axios.get(`http://localhost:8000/product/jeans/${location.pathname.split('/')[3]}`)
+            const product = await axios.get(`https://aandjbackend.onrender.com/product/jeans/${location.pathname.split('/')[3]}`)
             setProductById(product.data)
         }
         getProduct();
@@ -119,7 +121,8 @@ const Product = () => {
 
     const handleAddToCart = (e) =>{
         e.preventDefault();
-    (selectedSize != null)?dispatch(addToCart({...productById,selectedSize,quantity})):alert("please select size first")
+        dispatch(addToCart({...productById,selectedSize,quantity}))
+    // (selectedSize != null)?dispatch(addToCart({...productById,selectedSize,quantity})):alert("please select size first")
         
         
     }
@@ -138,6 +141,7 @@ const Product = () => {
     
   return (
     <>
+    <Navbar/>
     <Wrapper>
         <LeftBox>
             <Image src={productById?.img[0]} alt="product image" />

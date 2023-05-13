@@ -20,13 +20,14 @@ const Home = () => {
   const[sunGlasses,setSunGlasses] = useState([]);
   useEffect(()=>{
     const getProducts = async() =>{
-      const products = await axios.get("http://localhost:8000/product/watches");
+      const products = await axios.get("https://aandjbackend.onrender.com/product/watches");
+      console.log(products)
       setSlideProducts(products.data);
-      const secondSlideProducts = await axios.get("http://localhost:8000/product/belts");
+      const secondSlideProducts = await axios.get("https://aandjbackend.onrender.com/product/belts");
       setSecondSlide(secondSlideProducts.data);
-      const wallets = await axios.get("http://localhost:8000/product/wallets");
+      const wallets = await axios.get("https://aandjbackend.onrender.com/product/wallets");
       setWallets(wallets.data);
-      const sunglasses = await axios.get("http://localhost:8000/product/sunglasses");
+      const sunglasses = await axios.get("https://aandjbackend.onrender.com/product/sunglasses");
       setSunGlasses(sunglasses.data);
      
 
