@@ -70,7 +70,7 @@ const Slide = (props) => {
             props.slideProducts?.map((item)=>{
               return(
                 <>
-                <Link to={`http://localhost:3000/products/jeans/${item._id}`} style={{textDecoration:"none",color:"inherit"}}>
+                <Link to={`https://aandj-bm4g.onrender.com/products/jeans/${item._id}`} style={{textDecoration:"none",color:"inherit"}}>
                 <InnerBox>
                 <Image src={item.img[0]} alt="watch image" />
                 <TextBox>

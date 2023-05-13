@@ -44,7 +44,7 @@ const CategorieItem = ({item}) => {
         <Image src={item.img} alt="" />
         <ButtonBox>
             <Typography style={{fontWeight:800,letterSpacing:"1.3px",fontSize:"18px"}}>{item.title}</Typography>
-            <Link to={`http://localhost:3000/products/${item.cat}`} style={{width:"100%",textDecoration:"none"}}>
+            <Link to={`https://aandj-bm4g.onrender.com/products/${item.cat}`} style={{width:"100%",textDecoration:"none"}}>
             <CustomButton>Shop Now</CustomButton>
             </Link>
         </ButtonBox>

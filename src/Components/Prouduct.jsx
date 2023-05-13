@@ -63,7 +63,7 @@ const Prouduct = ({allProducts}) => {
     {
         allProducts?.map((singleProduct)=>{
             return(
-                <Link to={`http://localhost:3000/products/jeans/${singleProduct._id}`} style={{textDecoration:"none",color:"inherit"}}>
+                <Link to={`https://aandj-bm4g.onrender.com/products/jeans/${singleProduct._id}`} style={{textDecoration:"none",color:"inherit"}}>
                 <Container>
         <ImageBox>
         <Image src={singleProduct.img[0]} alt="" />
